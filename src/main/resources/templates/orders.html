@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+	integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+	crossorigin="anonymous">
+<title>Users System</title>
+</head>
+<body>
+	<div class="container mt-5 w-75">
+
+		<div th:replace="~{fragments :: header(orders)}"></div>
+
+		<div class="table-responsive mt-3">
+
+			<table class="table">
+				<thead class="thead-dark">
+					<tr>
+						<th scope="col">Id Order</th>
+						<th scope="col">Order Date</th>
+						<th scope="col">Shipped Date</th>
+						<th scope="col">Id Customer</th>
+						<th scope="col">Shipping Method</th>
+						<th scope="col">Order Status</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="order: ${orders}">
+						<th th:text="${order.idOrder}"></th>
+						<td th:text="${order.orderDate}"></td>
+						<td th:text="${order.shippedDate}"></td>
+						<td th:text="${order.idCustormer}"></td>
+						<td th:text="${order.idShipMethod}"></td>
+						<td th:text="${order.idOrderStatus}"></td>
+					</tr>
+				</tbody>
+			</table>
+
+		</div>
+
+	</div>
+
+	<div th:replace="~{fragments :: scripts}"></div>
+
+</body>
+</html>
