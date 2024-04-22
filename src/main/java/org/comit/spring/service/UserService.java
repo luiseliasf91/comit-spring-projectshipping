@@ -36,4 +36,46 @@ public class UserService {
 			return products;
 	}
 		
+		public void createUser(User user) {
+			
+			this.validateUser(user);
+			this.userDao.createUser(user);
+		}
+		
+		public User findUser(User user){
+			
+			return this.userDao.findUser(user);
+		}
+		
+		private void validateUser(User user) {
+			
+			if (user.getFirstName().isEmpty()||
+				user.getLastName().isEmpty() ||
+				user.getUserName().isEmpty()) {
+				
+				throw new RuntimeException("Invalid user Data: " + user);
+			}
+		}
+		
+		public void createProduct(Product product) {
+			
+			this.validateProduct(product);
+			this.userDao.createProduct(product);
+		}
+		
+		public Product findProduct(Product product){
+			
+			return this.userDao.findProduct(product);
+		}
+		
+		private void validateProduct(Product product) {
+			
+			if (product.getSku().isEmpty()||
+				product.getProductName().isEmpty() ||
+				product.getDescription().isEmpty()) {
+				
+				throw new RuntimeException("Invalid user Data: " + product);
+			}
+		}
+		
 }

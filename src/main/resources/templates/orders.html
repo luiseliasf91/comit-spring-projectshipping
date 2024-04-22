@@ -15,6 +15,8 @@
 		<div th:replace="~{fragments :: header(orders)}"></div>
 
 		<div class="table-responsive mt-3">
+		
+			<a class="btn btn-primary mb-3" href="/orders/create">Create Order</a>
 
 			<table class="table">
 				<thead class="thead-dark">
@@ -25,6 +27,7 @@
 						<th scope="col">Id Customer</th>
 						<th scope="col">Shipping Method</th>
 						<th scope="col">Order Status</th>
+						<th scope="col">Actions</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -35,6 +38,13 @@
 						<td th:text="${order.idCustormer}"></td>
 						<td th:text="${order.idShipMethod}"></td>
 						<td th:text="${order.idOrderStatus}"></td>
+						<td style="white-space:nowrap">
+							<a class="btn btn-primary btn-sm"
+								th:href="@{/orders/edit(idOrder=${order.idOrder})}" >Edit</a>
+							<a class="btn btn-danger btn-sm"
+								th:href="@{/orders/delete(idOrder=${order.idOrder})}"
+								onclick="return confirm ('Are you sure?')">Delete</a>
+						</td>
 					</tr>
 				</tbody>
 			</table>
