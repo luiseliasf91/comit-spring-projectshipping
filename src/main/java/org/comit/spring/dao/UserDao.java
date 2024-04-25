@@ -59,6 +59,15 @@ public class UserDao {
 				.singleResult(this.jdbcTemplate.query(sql, new userMapper(), user.getIdUser(), user.getUserName()));
 
 	}
+	
+	public User findUser(String username) {
+
+		String sql = "SELECT * FROM user WHERE UPPER(USERNAME) = UPPER(?)";
+
+		return DataAccessUtils
+				.singleResult(this.jdbcTemplate.query(sql, new userMapper(), username));
+
+	}
 
 	public void createProduct(Product product) {
 

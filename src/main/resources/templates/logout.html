@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+	integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+	crossorigin="anonymous">
+<title>Inventory System</title>
+</head>
+<body>
+
+	<div class="container mt-5 w-25">
+		<div class="jumbotron bg_light border border-info mt-3 pb-4"
+			style="min-height: 450px">
+			<form class="form-signin" th:action="@{/logout}" method="post">	
+				<img class="mb-4"
+					th:src="@{/images/box_3619053.png}"
+					alt="" width="72" height="72">
+				<h2 class="form-signing-heading text-info text-center mb-3">Are you sure you want to logout?</h2>
+				<button class="btn btn-lg btn-info btn-block" type="submit">Log out</button>
+				<button class="btn btn-lg btn-warning btn-block" onclick="history.back()" type="button">Go back</button>
+			</form>
+		</div>
+
+	</div>
+
+</body>
+</html>

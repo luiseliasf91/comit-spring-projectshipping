@@ -1,7 +1,14 @@
 
+server:
+   servlet:
+    session.timeout: 15m
 spring:
   application:
     name: comit-spring-projectshipping
+  security:
+    user:
+      name: admin
+      password: 123
   datasource:
     url: jdbc:mysql://localhost:3306/Dropshipping
     username: root
