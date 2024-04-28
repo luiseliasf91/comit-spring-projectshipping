@@ -26,6 +26,7 @@
 						<th scope="col">Name</th>
 						<th scope="col">email</th>
 						<th scope="col">Birthday</th>
+						<th scope="col">Role</th>
 						<th scope="col">Actions</th>
 					</tr>
 				</thead>
@@ -35,7 +36,8 @@
 						<td th:text="${user.userName}"></td>
 						<td th:text="${user.firstName} + ' ' + ${user.lastName}"></td>
 						<td th:text="${user.email}"></td>
-						<td th:text="${user.birthday}"></td>
+						<td class="text-center" th:text="${#dates.format(user.birthday, 'dd-MM-yyyy')}"/>
+						<td th:text="${#strings.toUpperCase(user.admin.idAdmin)}" />
 						<td style="white-space:nowrap">
 							<a class="btn btn-primary btn-sm"
 								th:href="@{/list/edit(idUser=${user.idUser})}" >Edit</a>

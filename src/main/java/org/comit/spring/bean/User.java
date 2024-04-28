@@ -2,6 +2,8 @@ package org.comit.spring.bean;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class User {
 	
 	int idUser;
@@ -10,10 +12,23 @@ public class User {
 	String lastName;
 	String email;
 	String password;
+	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	Date birthday;
+	
 	String phoneNumber;
 	int idAdmin;
+	
+	Admin admin;
 
+
+	public Admin getAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(Admin admin) {
+		this.admin = admin;
+	}
 	public int getIdUser() {
 		return idUser;
 	}
@@ -72,7 +87,7 @@ public class User {
 	public String toString() {
 		return "User [idUser=" + idUser + ", userName=" + userName + ", firstName=" + firstName + ", lastName="
 				+ lastName + ", email=" + email + ", password=" + password + ", birthday=" + birthday + ", phoneNumber="
-				+ phoneNumber + ", idAdmin=" + idAdmin + "]";
+				+ phoneNumber + ", idAdmin=" + idAdmin + ", admin=" + admin + "]";
 	}
 	
 	

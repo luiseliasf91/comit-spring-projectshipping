@@ -7,6 +7,7 @@ import org.comit.spring.bean.Product;
 import org.comit.spring.bean.User;
 import org.comit.spring.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -14,6 +15,9 @@ public class UserService {
 		
 		@Autowired
 		UserDao userDao;
+		
+		@Autowired
+		PasswordEncoder passwordEncoder;
 		
 		public List <User> listUser(){
 		
@@ -39,6 +43,9 @@ public class UserService {
 		public void createUser(User user) {
 			
 			this.validateUser(user);
+			
+			user.setPassword(this.passwordEncoder.encode(user.getPassword()));
+			
 			this.userDao.createUser(user);
 		}
 		

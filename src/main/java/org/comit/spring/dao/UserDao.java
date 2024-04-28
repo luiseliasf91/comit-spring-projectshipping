@@ -21,7 +21,7 @@ public class UserDao {
 
 	public List<User> listUsers() {
 
-		String sql = "SELECT * FROM user";
+		String sql = "SELECT * FROM user U LEFT JOIN admin UR ON U.ID_ADMIN = UR.ID_ADMIN";
 
 		return this.jdbcTemplate.query(sql, new userMapper());
 
@@ -87,14 +87,5 @@ public class UserDao {
 
 	}
 
-//	public void admin(Admin admin) {
-//		
-//		String sqla = "INSERT INTO admin (NAME_ADMIN, DESCRIP_ADMIN, STATUS_ADMIN)"
-//				+ "VALUES(?,?,?)";
-//		
-//		int adminId = jdbcTemplate.queryForObject("SELECT LAST_INSERT_ID()", int.class);
-//		
-//		this.jdbcTemplate.update(sqla, admin.getNameAdmin(),admin.getDescripcionAdmin(),admin.getStatusAdmin());
-//	}
 
 }

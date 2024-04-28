@@ -15,12 +15,12 @@ public class CustomUserDetailsService implements UserDetailsService {
 	UserDao userdao;
 
 	@Override
-	public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		
-		User user = this.userdao.findUser(userName);
+		User user = this.userdao.findUser(username);
 		
 		if (user==null) {
-			throw new UsernameNotFoundException("User not found: " + userName);
+			throw new UsernameNotFoundException("User not found: " + username);
 			
 		}
 		

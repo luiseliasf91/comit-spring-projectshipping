@@ -1,10 +1,10 @@
 package org.comit.spring.config;
 
-import org.comit.spring.security.CustomPasswordEncoder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
@@ -30,7 +30,8 @@ public class WebSecurityConfig {
 	
 	@Bean
 	PasswordEncoder passwordEncoder() {
-		return new CustomPasswordEncoder();
+		//return new CustomPasswordEncoder();
+		return new BCryptPasswordEncoder();
 	}
 	
 }
